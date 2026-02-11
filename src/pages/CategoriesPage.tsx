@@ -12,10 +12,7 @@ function CategoriesPage(){
      const [products,setProducts]=useState<Product[]>([]);
      const [selectedCategory, setSelectedCategory] = useState<String | null>(null);
 
-    const filteredProducts = selectedCategory
-    ? products.filter(p => p.category === selectedCategory)
-    : products;
-    
+
     
       useEffect(() => {
         async function loadCategories() {

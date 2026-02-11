@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { Category } from "../types/Category";
 import TopCategories from "./TopCategories";
+import { Link } from "react-router";
 
 interface Props {
   categories?: Category[]; 
@@ -34,7 +35,7 @@ export default function Categories({ categories=[], onViewAll }: Props) {
           transition={{ type: "spring", stiffness: 300 }}
           className="text-[#0d7ff2] text-sm font-medium cursor-pointer flex items-center gap-1"
         >
-          View all categories
+          <Link to={"/Categories"}>View all categories</Link>
           <span className="text-lg">→</span>
         </motion.button>
       </div>

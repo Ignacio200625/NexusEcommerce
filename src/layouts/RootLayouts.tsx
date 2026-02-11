@@ -5,7 +5,7 @@ export default function RootLayout() {
   return (
     <div >
       <Navbar />
-      <main className="bg-[#f5f7f8]">
+      <main className="">
         <Outlet />
       </main>
     </div>

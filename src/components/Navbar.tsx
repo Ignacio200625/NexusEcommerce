@@ -1,4 +1,5 @@
 import icon from "../assets/Icono.png";
+import { Link } from "react-router";
 
 function Navbar() {
   return (
@@ -10,7 +11,7 @@ function Navbar() {
           <img src={icon} alt="Logo" className="h-10 w-20" />
 
           <a className="text-sm font-semibold hover:text-[#0d7ff2] transition-colors" href="#">
-            Shop
+            <Link to={"/"}>Shop</Link>
           </a>
           <a className="text-sm font-semibold hover:text-[#0d7ff2] transition-colors" href="#">
             New Arrivals

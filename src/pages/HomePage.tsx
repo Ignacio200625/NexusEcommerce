@@ -29,7 +29,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-[#f5f7f8]">
       <Hero />
       <Categories categories={categories} />
       <TrendingProducts products={products} />

@@ -28,7 +28,7 @@ function Products(){
   }, []);
 
     return(
-       <div><h1 className="text-3xl font-bold px-40 py-10">
+       <div><h1 className="text-3xl bg-[#f5f7f8] font-bold px-40 py-10">
         {search ? `Results for "${search}"` : "All Products"}
       </h1>
         <div className="bg-[#f5f7f8]">

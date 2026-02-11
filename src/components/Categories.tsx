@@ -5,10 +5,10 @@ import { Link } from "react-router";
 
 interface Props {
   categories?: Category[];
-  onViewAll?: () => void;
+
 }
 
-export default function Categories({ categories = [], onViewAll }: Props) {
+export default function Categories({ categories = [] }: Props) {
   const topCategories = categories.slice(0, 3);
 
   return (

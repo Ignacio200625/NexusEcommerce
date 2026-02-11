@@ -1,11 +1,18 @@
 import { motion } from "framer-motion"
 import type { Category } from "../types/Category"
+import { useNavigate } from "react-router"
 
 interface Props {
   topCategories: Category[]
 }
 
 function TopCategories({ topCategories }: Props) {
+    const navigate = useNavigate();
+
+  const handleClick = (categoryName: string) => {
+    // Navega a /Categories y pasa la categoría seleccionada por estado
+    navigate("/Categories", { state: { selectedCategory: categoryName } });
+  };
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {topCategories.map((cat) => (
@@ -14,6 +21,7 @@ function TopCategories({ topCategories }: Props) {
           whileHover={{ y: -6 }}
           transition={{ type: "spring", stiffness: 300 }}
           className="relative group p-8 rounded-xl border bg-white shadow-sm hover:shadow-xl cursor-pointer overflow-hidden"
+          onClick={() => handleClick(cat.nombre)}
         >
       
           <span

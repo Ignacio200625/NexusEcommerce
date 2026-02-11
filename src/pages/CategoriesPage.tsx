@@ -5,12 +5,16 @@ import { categoryLoader } from "../router/loaders/CategoryLoader";
 import type { Product } from "../types/Product";
 import { productLoader } from "../router/loaders/ProductLoader";
 import ProductsByCategories from "../components/ProductsByCategories";
+import { useLocation } from "react-router";
 
 function CategoriesPage(){
 
+    const location = useLocation();
+    const initialCategory = location.state?.selectedCategory || null;
+
      const [categories, setCategories] = useState<Category[]>([]);
      const [products,setProducts]=useState<Product[]>([]);
-     const [selectedCategory, setSelectedCategory] = useState<String | null>(null);
+     const [selectedCategory, setSelectedCategory] = useState<String | null>(initialCategory);
 
 
     

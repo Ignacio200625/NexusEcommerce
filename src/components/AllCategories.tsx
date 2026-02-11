@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import type { Category } from "../types/Category";
-import ProductsByCategory from "./ProductsByCategories";
+
 
 
 interface Props {
   categories?: Category[]; 
-  setSelectedCategory:(category: String) => void;
+  setSelectedCategory:(category: String | null) => void;
 }
 
 function AllCategories({ categories=[],setSelectedCategory}: Props){

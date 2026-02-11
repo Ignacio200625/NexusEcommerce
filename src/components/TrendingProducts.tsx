@@ -1,4 +1,4 @@
-import { div, h1 } from "framer-motion/client"
+
 import { motion } from "framer-motion"
 import type { Product } from "../types/Product";
 import { Heart, ShoppingCart } from "lucide-react";

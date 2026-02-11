@@ -3,6 +3,7 @@ import RootLayout from "../layouts/RootLayouts";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import CategoriesPage from "../pages/CategoriesPage";
+import AllProducts from "../pages/Products";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,17 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <CategoriesPage />,
+      }
+    ],
+  },
+  {
+    path: "/Products",
+    element: <RootLayout />,
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        index: true,
+        element: <AllProducts/>,
       }
     ],
   },

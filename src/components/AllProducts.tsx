@@ -61,9 +61,7 @@ function AllProducts({products}:Props){
                 ${product.price.toFixed(2)}
               </span>
 
-              <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-[#0d7ff2]">
-                Trending
-              </span>
+             
             </div>
           </div>
 

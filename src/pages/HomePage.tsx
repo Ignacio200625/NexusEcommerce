@@ -7,7 +7,7 @@ import type { Product } from "../types/Product";
 import { productLoader } from "../router/loaders/ProductLoader";
 import TrendingProducts from "../components/TrendingProducts";
 import Loop from "../components/Loop";
-import Footer from "../components/Footer";
+
 
 function HomePage() {
   const [categories, setCategories] = useState<Category[]>([]);

@@ -13,7 +13,7 @@ function TrendingProducts({products}:props){
 
         
        <div className="md:px-40 px-10">
-            <div className="py-20 px-20 bg-white rounded-lg ">
+            <div className="py-20 px-10 bg-white rounded-lg ">
                 <h1 className="font-bold text-3xl mb-2">Products</h1>
                 <section className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 mt-10 gap-8">
         

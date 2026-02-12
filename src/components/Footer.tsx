@@ -1,13 +1,15 @@
 import image from "../assets/Icono.png"
+import { Link } from "react-router";
 
 function Footer() {
   return (
     <div className=" mt-10 bg-white shadow-[0_-4px_10px_rgba(0,0,0,0.02)] md:px-40 px-20 text-gray-900  py-10">
-        <div className="max-w-7x1 grid grid-cols-2 md:grid-cols-4  w-full gap-20 md:gap-15">
+        <div className="max-w-7x1 grid grid-cols-2 md:grid-cols-5  w-full gap-20 md:gap-15">
+          
+          <Link to="/"><img src={image} alt="Logo" className="h-10 w-20" /></Link>
+      
       <div className="w-1/4">
-       <div>
-        <img src={image} alt="" />
-       </div>
+       
        <div>
          <p className="text-[#69748b]  text-nowrap  text-base mt-2">
          Curating the world's <br className="md:hidden"/> most <br />

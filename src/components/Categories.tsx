@@ -13,7 +13,7 @@ export default function Categories({ categories = [] }: Props) {
 
   return (
     <motion.div
-      className="flex flex-col px-40 pb-20 "
+      className="flex flex-col md:px-40 px-15 pb-20 "
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -33,7 +33,7 @@ export default function Categories({ categories = [] }: Props) {
         >
           <Link
             to="/Categories"
-            className="text-[#0d7ff2] text-sm font-medium cursor-pointer flex items-center gap-1"
+            className="text-[#0d7ff2] text-sm font-medium cursor-pointer flex items-center gap-0"
           >
             View all categories <span className="text-lg">→</span>
           </Link>

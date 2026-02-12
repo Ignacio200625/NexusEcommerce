@@ -2,17 +2,17 @@ import image from "../assets/Icono.png"
 
 function Footer() {
   return (
-    <div className=" mt-10 bg-white  shadow-[0_-4px_10px_rgba(0,0,0,0.02)] px-40 text-gray-900  py-10">
-        <div className="max-w-7x1 grid grid-cols-1 md:grid-cols-4  w-full gap-15">
+    <div className=" mt-10 bg-white  shadow-[0_-4px_10px_rgba(0,0,0,0.02)] md:px-40 px-20 text-gray-900  py-10">
+        <div className="max-w-7x1 grid grid-cols-2 md:grid-cols-4  w-full gap-20 md:gap-15">
       <div className="w-1/4">
        <div>
         <img src={image} alt="" />
        </div>
        <div>
          <p className="text-[#69748b]  text-nowrap  text-base mt-2">
-         Curating the world's most <br />
-         premium lifestyle and fashion <br />
-         essentials since 2018. <br />  Quality over  quantity, always.
+         Curating the world's <br className="md:hidden"/> most <br />
+         premium lifestyle and <br className="md:hidden"/> fashion <br />
+         essentials since 2018. <br />  Quality over <br className="md:hidden"/> quantity, always.
         </p>
        </div>
       </div>
@@ -62,7 +62,7 @@ function Footer() {
 
     </div>
   <div className="mt-10 border-t border-gray-300 dark:border-gray-700 w-4/4 mx-auto"></div>
-     <div className="flex items-center justify-between">
+     <div className="flex md:flex-row flex-col items-center justify-between">
        <p className="text-center  text-[#69748b]   mt-5 ">@2026 Tu plataforma. Todos los derechos reservados.</p>
        <div className=" flex gap-5  mt-5 ">
         <p className="text-[#69748b] hover:text-black cursor-pointer">Privacy Policy</p>

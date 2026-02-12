@@ -13,7 +13,7 @@ function AllCategories({ categories=[],setSelectedCategory}: Props){
     return(
     
     <motion.div
-      className="flex  flex-col py-20 px-40 pb-20 "
+      className="flex  flex-col py-20 md:px-40 px-10 pb-20 "
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -26,7 +26,7 @@ function AllCategories({ categories=[],setSelectedCategory}: Props){
      
 
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {categories.map((cat) => (
         <motion.div
           key={cat.nombre}

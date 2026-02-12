@@ -28,7 +28,7 @@ function Navbar() {
   );
 
   return (
-    <div className="w-full border-b border-gray-200">
+    <div className="w-full bg-white border-b border-gray-200">
 
       <nav className="hidden md:flex w-full items-center justify-between px-40 py-4">
         <div className="flex items-center gap-5">

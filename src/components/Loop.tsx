@@ -2,7 +2,7 @@ import Button from "./Button";
 
 function Loop() {
   return (
-    <div className="md:px-40 px-20 mt-10 ">
+    <div className="md:px-40 px-20 mt-10">
         <section className="px-10 py-10 rounded-xl bg-[#eaf0f7]">
       <div className="flex md:flex-row flex-col justify-between items-center">
         <div>

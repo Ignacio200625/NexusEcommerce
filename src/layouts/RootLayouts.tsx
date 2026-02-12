@@ -8,8 +8,13 @@ export default function RootLayout() {
       <Navbar />
       <main className="">
         <Outlet />
+        <div className="bg-[#f5f7f8]">
+        <Footer />
+      </div>
       </main>
-      <Footer />
+      
+      
+      
     </div>
   );
 }

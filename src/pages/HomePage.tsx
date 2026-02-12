@@ -33,8 +33,10 @@ function HomePage() {
       <Hero />
       <Categories categories={categories} />
       <TrendingProducts products={products} />
-      <Loop/>
-      <Footer/>
+    
+       <Loop/>
+    
+
     </div>
   );
 }

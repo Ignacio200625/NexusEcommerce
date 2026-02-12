@@ -16,7 +16,7 @@ export default function Hero() {
         />
 
         {/* Gradiente overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/70 to-transparent z-10" />
 
         {/* Contenido */}
         <motion.div

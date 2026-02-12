@@ -19,7 +19,8 @@ function Navbar() {
         
       
         <div className="flex items-center gap-5">
-          <img src={icon} alt="Logo" className="h-10 w-20" />
+          
+           <Link to={"/"}><img src={icon} alt="Logo" className="h-10 w-20" /></Link>
 
           <a className="text-sm font-semibold hover:text-[#0d7ff2] transition-colors" href="#">
             <Link to={"/"}>Shop</Link>
@@ -28,7 +29,7 @@ function Navbar() {
             <Link to={"/Products"}>All Products</Link>
           </a>
           <a className="text-sm font-semibold hover:text-[#0d7ff2]  transition-colors" href="#">
-            Collections
+            <Link to={"/Categories"}>Collections</Link>
           </a>
           <a className="text-sm font-semibold hover:text-[#0d7ff2]  transition-colors" href="#">
             Journal

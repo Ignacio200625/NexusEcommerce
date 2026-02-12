@@ -13,7 +13,7 @@ function AllProducts({products}:Props){
 
     return(
            <div className="px-40 py-10">
-            <h1 className="font-bold text-3xl mb-10">Browse Categories</h1>
+            
         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-6">
          {products.map((product:Product) => (
         <motion.div

@@ -30,10 +30,10 @@ function Cart() {
 
       <Toaster richColors position="top-center" />
 
-      <h2 className="text-3xl font-bold mb-6">Carrito</h2>
+      <h2 className="text-3xl font-bold mb-6">Cart</h2>
 
       {cart.length === 0 ? (
-        <p className="text-gray-500">Tu carrito está vacío</p>
+        <p className="text-gray-500">Your cart is empty</p>
       ) : (
         <div className="space-y-4">
           {cart.map((item) => (

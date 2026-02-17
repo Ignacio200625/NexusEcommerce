@@ -49,10 +49,12 @@ function Navbar() {
           </form>
 
           <button className="text-xl">👤</button>
-          <div className="relative cursor-pointer">
-            <span className="text-xl">👜</span>
-            <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full px-1.5">3</span>
-          </div>
+           <Link to="/cart" className="relative inline-block cursor-pointer">
+          <span className="text-xl">👜</span>
+          <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full px-1.5">
+           3
+          </span>
+        </Link>
         </div>
       </nav>
 
@@ -84,10 +86,12 @@ function Navbar() {
           </form>
 
           <button className="text-xl">👤</button>
-          <div className="relative cursor-pointer">
-            <span className="text-xl">👜</span>
-            <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full px-1.5">3</span>
-          </div>
+        <Link to="/cart" className="relative inline-block cursor-pointer">
+          <span className="text-xl">👜</span>
+          <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full px-1.5">
+           3
+          </span>
+        </Link>
         </div>
       )}
     </div>

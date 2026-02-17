@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import CategoriesPage from "../pages/CategoriesPage";
 import AllProducts from "../pages/Products";
+import Cart from "../pages/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,17 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <AllProducts/>,
+      }
+    ],
+  },
+  {
+    path: "/cart",
+    element: <RootLayout />,
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        index: true,
+        element: <Cart/>,
       }
     ],
   },

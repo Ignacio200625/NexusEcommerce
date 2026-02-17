@@ -1,7 +1,7 @@
 
 import type { Product } from "../types/Product";
 import { motion } from "framer-motion";
-
+import { useCart } from "../context/CartContext";
 import { Heart, ShoppingCart } from "lucide-react";
 
 interface Props{
@@ -10,6 +10,7 @@ interface Props{
 
 
 function AllProducts({products}:Props){
+  const { addToCart } = useCart();
 
     return(
            <div className="px-2 md:px-40 py-10">
@@ -40,6 +41,7 @@ function AllProducts({products}:Props){
               initial={{ opacity: 0, y: 20 }}
               whileHover={{ scale: 1.05 }}
               whileInView={{ opacity: 1, y: 0 }}
+              onClick={() => addToCart(product)}
               className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-xl bg-[#0d7ff2] px-6 py-3 text-white font-semibold shadow-lg opacity-0 group-hover:opacity-100 transition"
             >
               <ShoppingCart className="w-5 h-5" />
@@ -66,7 +68,7 @@ function AllProducts({products}:Props){
           </div>
 
           <span className="absolute inset-x-0 bottom-0 h-1 bg-[#0d7ff2] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-        </motion.div>
+      </motion.div>
       ))}
         
         </div>

@@ -11,7 +11,7 @@ function Footer() {
       <div className="w-1/4">
        
        <div>
-         <p className="text-[#69748b]  text-nowrap  text-base mt-2">
+         <p className="text-[#69748b]  md:text-nowrap  text-base mt-2">
          Curating the world's <br className="md:hidden"/> most <br />
          premium lifestyle and <br className="md:hidden"/> fashion <br />
          essentials since 2018. <br />  Quality over <br className="md:hidden"/> quantity, always.

@@ -1,11 +1,14 @@
 import icon from "../assets/Icono.png";
 import { Link, useNavigate } from "react-router";
 import { useState } from "react";
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { cart } = useCart(); // Traemos el carrito
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0); // Suma de todas las cantidades
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,7 +92,7 @@ function Navbar() {
         <Link to="/cart" className="relative inline-block cursor-pointer">
           <span className="text-xl">👜</span>
           <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full px-1.5">
-           3
+           {totalItems}
           </span>
         </Link>
         </div>

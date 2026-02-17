@@ -1,9 +1,14 @@
 import { useCart } from "../context/CartContext";
 import {Button} from "../components/Button"
 function Cart() {
-  const { cart, removeFromCart, increaseQty, decreaseQty } = useCart();
-
+  const { cart, removeFromCart, increaseQty, decreaseQty,clearCart } = useCart();
+  
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+    const handleSubmitPurchase = () => {
+    clearCart(); // ✅ vacía el carrito
+    alert("Compra realizada con éxito 🎉"); // opcional
+  };
 
   return (
     <div className="p-10 max-w-4xl mx-auto">
@@ -63,8 +68,8 @@ function Cart() {
           <div className="text-right mt-4 text-xl font-bold">
             Total: ${totalPrice.toFixed(2)}
           </div>
-          <div className="mt-4 text-center font-bold">
-            <Button variant={"primary"} text={"Submit purchase"}/>
+          <div className="mt-4 text-center font-bold" onClick={handleSubmitPurchase}>
+            <Button variant={"primary"} text={"Submit purchase"} />
 
           </div>
         </div>

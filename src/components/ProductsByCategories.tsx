@@ -1,14 +1,31 @@
 import type { Product } from "../types/Product";
 import { motion } from "framer-motion";
 import { Heart, ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
+import { toast, Toaster } from "sonner"; 
+
 interface Props{
     products:Product[]
 }
 
 function ProductsByCategories({products}:Props){
+    
+    const { addToCart } = useCart();
 
-    return(
+  // 2. Función para manejar el clic y mostrar la notificación
+  const handleAddToCart = (product: Product) => {
+    addToCart(product);
+    toast.success(`${product.title} Product Added`, {
+      description: "You can rewiew your product in the cart",
+      duration: 3000,
+      position: "bottom-right",
+    });
+  };
+
+    return(<div>
+      <Toaster richColors closeButton />
         <div className="grid grid-cols-2 px-2 md:px-40 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+           
          {products.map((product:Product) => (
         <motion.div
           key={product.id}
@@ -34,6 +51,7 @@ function ProductsByCategories({products}:Props){
               initial={{ opacity: 0, y: 20 }}
               whileHover={{ scale: 1.05 }}
               whileInView={{ opacity: 1, y: 0 }}
+              onClick={() => handleAddToCart(product)}
               className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-xl bg-[#0d7ff2] px-6 py-3 text-white font-semibold shadow-lg opacity-0 group-hover:opacity-100 transition"
             >
               <ShoppingCart className="w-5 h-5" />
@@ -64,6 +82,7 @@ function ProductsByCategories({products}:Props){
       ))}
         
         </div>
+    </div>
     )
 
 }

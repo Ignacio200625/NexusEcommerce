@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useCart } from "../context/CartContext";
 import { Heart, ShoppingCart } from "lucide-react";
 import { toast, Toaster } from "sonner"; 
+import { Link } from "react-router";
 
 interface Props {
   products: Product[];
@@ -14,13 +15,12 @@ function AllProducts({ products }: Props) {
   // 2. Función para manejar el clic y mostrar la notificación
   const handleAddToCart = (product: Product) => {
     addToCart(product);
-    toast.success(`${product.title} añadido al carrito`, {
-      description: "Puedes revisar tu pedido en la cesta.",
+    toast.success(`${product.title} Product Added`, {
+      description: "You can rewiew your product in the cart",
       duration: 3000,
       position: "bottom-right",
     });
   };
-
   return (
     <div className="px-2 md:px-40 py-10">
 
@@ -28,7 +28,8 @@ function AllProducts({ products }: Props) {
 
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product: Product) => (
-          <motion.div
+          <Link to={`/Products/${product.id}`}>
+            <motion.div
             key={product.id}
             whileHover={{ y: -6 }}
             transition={{ type: "spring", stiffness: 260 }}
@@ -42,7 +43,7 @@ function AllProducts({ products }: Props) {
               <img
                 src={product.image}
                 alt={product.title}
-                className="h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                className="h-full object-contain hover:scale-105 transition-transform duration-500"
               />  
 
               <motion.button
@@ -74,6 +75,7 @@ function AllProducts({ products }: Props) {
 
             <span className="absolute inset-x-0 bottom-0 h-1 bg-[#0d7ff2] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
           </motion.div>
+          </Link>
         ))}
       </div>
     </div>

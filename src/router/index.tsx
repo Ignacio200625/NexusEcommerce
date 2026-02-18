@@ -5,6 +5,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import CategoriesPage from "../pages/CategoriesPage";
 import AllProducts from "../pages/Products";
 import Cart from "../pages/Cart";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,21 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Cart/>,
+      }
+    ],
+  },
+  {
+    path: "/Products",
+    element: <RootLayout />,
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        index: true,
+        element: <AllProducts />,
+      },
+      {
+        path: ":id", // Esto captura /Products/1, /Products/2, etc.
+        element: <ProductDetailsPage />,
       }
     ],
   },

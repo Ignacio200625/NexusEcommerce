@@ -17,13 +17,12 @@ function TrendingProducts({products}:props){
   // 2. Función para manejar el clic y mostrar la notificación
   const handleAddToCart = (product: Product) => {
     addToCart(product);
-    toast.success(`${product.title} añadido al carrito`, {
-      description: "Puedes revisar tu pedido en la cesta.",
+    toast.success(`${product.title} Product Added`, {
+      description: "You can rewiew your product in the cart",
       duration: 3000,
       position: "bottom-right",
     });
   };
-
 
     return(
 

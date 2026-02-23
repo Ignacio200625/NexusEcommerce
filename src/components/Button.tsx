@@ -1,6 +1,7 @@
 interface ButtonProps {
   text: string;
-  variant?: "primary"; 
+  variant?: "primary";
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 const variants: Record<"primary" , string> = {
@@ -13,11 +14,11 @@ hover:shadow-[0_0_30px_rgba(13,127,242,0.9)]
   `
 };
 
-export function Button({ text, variant = "primary" }: ButtonProps) {
+export function Button({ text, variant = "primary",onClick }: ButtonProps) {
   const base =
     "px-6 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer";
 
-  return <button className={`${base}  ${variants[variant]}`}>{text}</button>;
+  return <button onClick={onClick} className={`${base}  ${variants[variant]}`}>{text}</button>;
 }
 
 export default Button;

@@ -43,7 +43,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="absolute inset-0"
           >
-            {/* Imagen con efecto de zoom suave (Ken Burns) */}
+   
             <motion.img
               src={slides[current].image}
               alt="Fashion Slide"
@@ -52,11 +52,9 @@ export default function Hero() {
               animate={{ scale: 1 }}
               transition={{ duration: 5, ease: "easeOut" }}
             />
-            
-            {/* Gradiente overlay (manteniendo tu estilo original) */}
+
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10" />
 
-            {/* Contenido */}
             <div className="relative z-20 flex h-full items-center px-6 md:px-20 lg:px-40">
               <div className="max-w-xl text-white">
                 <motion.h1
@@ -91,7 +89,7 @@ export default function Hero() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Indicadores de posición (Puntitos) */}
+  
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
           {slides.map((_, index) => (
             <button

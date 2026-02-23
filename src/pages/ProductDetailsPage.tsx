@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ProductDetails from "../components/ProductDetails"; 
 import type { Product } from "../types/Product";
-import { useLocation } from "react-router";
 import { productLoader } from "../router/loaders/ProductLoader";
 
 function ProductDetailsPage() {
@@ -14,8 +13,7 @@ function ProductDetailsPage() {
 
 
   const [products,setProducts]=useState<Product[]>([]);
-  const location = useLocation();
-  const search = location.state?.search?.toLowerCase() || "";
+
   // Buscamos el producto por ID (asegúrate de comparar tipos correctamente)
   const product = products.find((p) => p.id === Number(id));
 

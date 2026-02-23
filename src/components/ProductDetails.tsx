@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useCart } from "../context/CartContext";
 import { Heart, ShoppingCart, ArrowLeft, Star, ShieldCheck, Truck } from "lucide-react";
 import { toast, Toaster } from "sonner";
+import { useFavorites } from "../context/FavoritesContext";
+import { useUser } from "@clerk/clerk-react";
 
 interface Props {
   product: Product;
@@ -12,13 +14,26 @@ interface Props {
 
 function ProductDetails({ product, onBack }: Props) {
   const { addToCart } = useCart();
+  const {user}=useUser()
+  //Le damos un valor inicial porque puede ser undefined
   const [quantity, setQuantity] = useState(1);
+  const { addToFavorites,itemLiked } = useFavorites();
 
   const handleAddToCart = () => {
-    // Si tu contexto soporta cantidad, pásala aquí
+    if(!user){toast.error(`${product.title} Load your profile`, {
+      description: "You have to load in our page",
+      duration: 3000,
+      position: "bottom-right",
+    });
+    return
+  }
+    // Si el contexto soporta cantidad, la pasa aquí
     for (let i = 0; i < quantity; i++) {
       addToCart(product);
     }
+    
+
+    
     
     toast.success(`${product.title} añadido`, {
       description: `${quantity} unidades añadidas al carrito con éxito.`,
@@ -26,12 +41,13 @@ function ProductDetails({ product, onBack }: Props) {
       position: "bottom-right",
     });
   };
+     const isFavorite = itemLiked.some((fav) => fav.id === product.id);
 
   return (
     <div className="min-h-screen bg-white px-6 md:px-20 py-10">
       <Toaster richColors closeButton />
       
-      {/* Botón de Regresar */}
+   
       <button 
         onClick={onBack}
         className="flex items-center gap-2 text-gray-500 hover:text-[#0d7ff2] transition-colors mb-8 group"
@@ -42,7 +58,7 @@ function ProductDetails({ product, onBack }: Props) {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         
-        {/* Sección de Imagen (Izquierda) */}
+     
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -53,12 +69,14 @@ function ProductDetails({ product, onBack }: Props) {
             alt={product.title}
             className="max-h-[500px] object-contain hover:scale-105 transition-transform duration-500"
           />
-          <button className="absolute top-6 right-6 p-3 rounded-full bg-white shadow-md hover:scale-110 transition group">
-            <Heart className="w-6 h-6 text-gray-400 group-hover:text-red-500 transition-colors" />
-          </button>
+           <button onClick={(e)=>{  e.preventDefault(); addToFavorites(product)}} className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white shadow hover:scale-110 transition">
+              <Heart className={`w-5 h-5 ${
+            isFavorite ? "text-red-500 fill-red-500" : "text-gray-400 group-hover:text-red-500"
+          }`} />
+            </button>
         </motion.div>
 
-        {/* Sección de Información (Derecha) */}
+   
         <motion.div 
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -95,7 +113,7 @@ function ProductDetails({ product, onBack }: Props) {
             )}
           </div>
 
-          {/* Selector de Cantidad y Botón */}
+     
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <div className="flex items-center border-2 border-gray-100 rounded-2xl p-1 bg-gray-50">
               <button 
@@ -123,7 +141,6 @@ function ProductDetails({ product, onBack }: Props) {
             </motion.button>
           </div>
 
-          {/* Beneficios Adicionales */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8 border-t border-gray-100">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-green-50 rounded-lg">

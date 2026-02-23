@@ -6,6 +6,7 @@ import CategoriesPage from "../pages/CategoriesPage";
 import AllProducts from "../pages/Products";
 import Cart from "../pages/Cart";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
+import Favorites from "../pages/Favorites";
 
 export const router = createBrowserRouter([
   {
@@ -31,17 +32,6 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/Products",
-    element: <RootLayout />,
-    errorElement: <NotFoundPage />,
-    children: [
-      {
-        index: true,
-        element: <AllProducts/>,
-      }
-    ],
-  },
-  {
     path: "/cart",
     element: <RootLayout />,
     errorElement: <NotFoundPage />,
@@ -49,6 +39,17 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Cart/>,
+      }
+    ],
+  },
+  {
+    path: "/Favorites",
+    element: <RootLayout />,
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        index: true,
+        element: <Favorites/>,
       }
     ],
   },
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
         element: <AllProducts />,
       },
       {
-        path: ":id", // Esto captura /Products/1, /Products/2, etc.
+        path: ":id", // Esto captura /Products/1, /Products/2, ...
         element: <ProductDetailsPage />,
       }
     ],

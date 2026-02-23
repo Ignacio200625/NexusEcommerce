@@ -15,7 +15,7 @@ interface Props {
 function CardProduct({ product, trending }: Props) {
   const { addToCart } = useCart();
   const { addToFavorites,itemLiked } = useFavorites();
-  const { user, isLoaded } = useUser();
+  const { user } = useUser();
 
   const handleAddToCart = (product: Product) => {
     if(!user){toast.error(`${product.title} Load your profile`, {

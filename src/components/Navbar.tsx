@@ -5,6 +5,7 @@ import { useCart } from "../context/CartContext";
 import { useFavorites } from "../context/FavoritesContext";
 import { Heart } from "lucide-react";
 import { useClerk,UserButton,useUser } from "@clerk/clerk-react";
+
 function Navbar() {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -123,7 +124,6 @@ function Navbar() {
 
           <button className="text-xl">👤</button>
 
-          {/* Favoritos Mobile */}
           <Link to="/favorites" className="relative inline-block cursor-pointer">
             <Heart className="w-6 h-6 text-gray-600 hover:text-red-500 transition-colors" />
             {totalFavorites > 0 && (
@@ -133,7 +133,6 @@ function Navbar() {
             )}
           </Link>
 
-          {/* Carrito Mobile */}
           <Link to="/cart" className="relative inline-block cursor-pointer">
             <span className="text-xl">👜</span>
             {totalItems > 0 && (

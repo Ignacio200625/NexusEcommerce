@@ -4,7 +4,7 @@ import type { Category } from "../types/Category";
 
 
 interface Props {
-  categories?: Category[]; 
+  categories: Category[]; 
   setSelectedCategory:(category: String | null) => void;
 }
 
@@ -31,13 +31,14 @@ function AllCategories({ categories=[],setSelectedCategory}: Props){
         <motion.div
           key={cat.nombre}
           whileHover={{ y: -6 }}
-          transition={{ type: "spring", stiffness: 300 }}
+          transition={{ type: "spring"
+           }}
           onClick={() => setSelectedCategory(cat.nombre)}
           className=" relative group p-8 rounded-xl border bg-white shadow-sm hover:shadow-xl cursor-pointer overflow-hidden"
         >
       
           <span
-            className="absolute inset-x-0 bottom-0 h-1 bg-[#0d7ff2] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+            className="absolute inset-x-0 bottom-0 h-1 bg-[#0d7ff2] scale-x-0 group-hover:scale-x-100 transition origin-left duration-300"
           />
 
           <h3

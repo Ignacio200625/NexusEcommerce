@@ -20,6 +20,8 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>(() => {
     // Cargar carrito desde localStorage al iniciar
+    //Esta comprobando si el carrito existe si no no lo carga 
+    //Normalmente no se comprueba si undefined pero en el caso de usar Next.js
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("cart");
       return stored ? JSON.parse(stored) : [];
@@ -34,7 +36,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  
   const addToCart = (product: Product) => {
+    //prev = el valor actual de cart antes del cambio
+    //prev lo define internamente react para indicar el cart actual
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
@@ -54,6 +59,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const increaseQty = (id: number) => {
+    //Busca por id al item si lo encuentra le aumenta la cantidad por uno sino le deja igual
     setCart((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item

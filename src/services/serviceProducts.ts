@@ -22,8 +22,3 @@ export async function getCategories(): Promise<Category[]> {
   const uniqueNames = Array.from(new Set(products.map(p => p.category)));
   return uniqueNames.map(nombre => ({ nombre }));
 }
-
-export async function getProductsByCategory(categoryName: string): Promise<Product[]> {
-  const products = await getProducts();
-  return products.filter(p => p.category === categoryName);
-}

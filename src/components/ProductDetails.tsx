@@ -41,7 +41,7 @@ function ProductDetails({ product, onBack }: Props) {
       position: "bottom-right",
     });
   };
-     const isFavorite = itemLiked.some((fav) => fav.id === product.id);
+  const isFavorite = itemLiked.some((fav) => fav.id === product.id);
 
   return (
     <div className="min-h-screen bg-white px-6 md:px-20 py-10">

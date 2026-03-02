@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# Nexus Ecommerce 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nexus Ecommerce is a modern, high-performance web application designed to provide a seamless online shopping experience. Built with React, TypeScript, and Vite, it leverages the FakeStoreAPI to showcase a wide range of products across various categories with a focus on speed and user experience.
 
-Currently, two official plugins are available:
+## 🎯 Objectives
+- Provide a clean and intuitive interface for browsing products.
+- Implement a functional shopping cart and favorites system.
+- Ensure a responsive design that works flawlessly across all devices.
+- Demonstrate modern React patterns using `react-router` and `framer-motion` for smooth transitions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- **Product Catalog**: Browse a wide variety of products fetched from an external API.
+- **Category Filtering**: Easily find products by their respective categories.
+- **Product Details**: Detailed view for each product including description, price, and category.
+- **Shopping Cart**: Add, remove, and manage items in your cart.
+- **Favorites System**: Save products you love for later.
+- **Authentication**: Secure user access integrated with Clerk.
+- **Responsive UI**: Optimized for mobile, tablet, and desktop views.
+- **Smooth Animations**: Enhanced user experience with `framer-motion`.
 
-## React Compiler
+## 🎨 Figma Prototype
+You can find the basic wireframe and prototype for this application at the following link:
+[Link to Figma Prototype](https://www.figma.com/...) *(Please replace with your actual link)*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technologies Used
+- **Frontend Framework**: [React 19](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Routing**: [React Router 7](https://reactrouter.com/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Authentication**: [Clerk](https://clerk.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Notifications**: [Sonner](https://sonner.steventey.com/)
+- **API**: [FakeStoreAPI](https://fakestoreapi.com/)
 
-## Expanding the ESLint configuration
+## ⚙️ Installation Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To get a local copy up and running, follow these simple steps:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Ignacio200625/NexusEcommerce.git
+   cd NexusEcommerce
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Set up Environment Variables**:
+   Create a `.env` file in the root directory and add your Clerk publishable key:
+   ```env
+   VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key_here
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📖 Usage Guide
+- **Home**: Discover trending products and top categories.
+- **Products**: View all available items or filter them by category.
+- **Search/Filter**: Use the navigation to find specific types of products.
+- **Cart**: Add items to your cart and manage quantities before "checkout".
+- **Account**: Sign in/up using the Clerk integration to manage your profile.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔌 API Documentation
+The application uses the **FakeStoreAPI** for all product data:
+- **Base URL**: `https://fakestoreapi.com`
+- **Endpoints used**:
+  - `GET /products`: Fetches all products.
+  - `GET /products/:id`: Fetches a single product details.
+  - `GET /products/categories`: Fetches all category names.
+
+## 📝 Implementation Notes
+
+### Components
+- **Navbar**: Main navigation with search and user controls.
+- **Hero**: Engaging landing section for the homepage.
+- **CardProduct**: Individual product display used in catalogs.
+- **Cart/Favorites**: Specialized components for managing lists.
+
+### Routes
+- `/`: Home Page.
+- `/Categories`: Category browsing page.
+- `/Products`: Full product catalog.
+- `/Products/:id`: Product details view.
+- `/cart`: Shopping cart summary.
+- `/Favorites`: User's wishlist.
+
+### Layouts
+- **RootLayout**: The main wrapper providing the Navbar and Footer across all pages.
+
+## 🌐 Deployed Application
+The live version of the project is available here:
+[Link to Live Application](https://nexus-ecommerce.vercel.app/...) *(Please replace with your actual link)*
+
+---
+Developed by Ignacio - 2026.
